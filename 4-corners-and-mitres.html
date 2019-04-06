@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Corners and Mitres</title>
+
+  <style>
+    #canvas {
+      border: 1px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="300">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.lineWidth = 26
+    ctx.strokeStyle = 'tomato'
+    ctx.lineJoin = 'round'
+
+    ctx.beginPath()
+    ctx.moveTo(40, 40)
+    ctx.lineTo(230, 40)
+    ctx.lineTo(40, 230)
+    ctx.closePath()
+    ctx.stroke()
+
+    ctx.lineWidth = 100
+    ctx.strokeStyle = 'goldenrod'
+    ctx.lineCap = 'round'
+    ctx.globalAlpha = 0.75;
+
+    ctx.beginPath()
+    ctx.moveTo(200, 40)
+    ctx.lineTo(200, 230)
+    ctx.stroke()
+
+    console.log(ctx)
+  </script>
+
+</body>
+
+</html>

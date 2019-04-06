@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adding Text</title>
+
+  <style>
+    #canvas {
+      border: 1px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="300">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    console.log(ctx)
+  </script>
+
+</body>
+
+</html>

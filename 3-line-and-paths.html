@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lines and Paths</title>
+
+  <style>
+    #canvas {
+      border: 1px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="300">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.beginPath()
+    ctx.moveTo(9.5, 9.5)
+    ctx.lineTo(289.5, 9.5)
+    ctx.lineTo(289.5, 289.5)
+    ctx.lineTo(9.5, 289.5)
+    ctx.closePath()
+
+    ctx.stroke()
+
+    ctx.setLineDash([1, 2, 3, 5, 8, 13, 21])
+
+    ctx.beginPath()
+    ctx.moveTo(19.5, 19.5)
+    ctx.lineTo(259.5, 19.5)
+    ctx.lineTo(259.5, 259.5)
+    ctx.lineTo(19.5, 259.5)
+    ctx.closePath()
+
+    ctx.stroke()
+    
+    ctx.setLineDash([0, 0])
+    ctx.strokeStyle = 'coral'
+    ctx.lineWidth = '20'
+    ctx.globalAlpha = '0.5'
+
+    ctx.beginPath()
+    ctx.moveTo(50, 50)
+    ctx.lineTo(200, 130)
+    ctx.lineTo(50, 225)
+    ctx.closePath()
+
+    ctx.stroke()
+
+    ctx.beginPath()
+    ctx.moveTo(100, 100)
+    ctx.lineTo(160, 130)
+    ctx.lineTo(100, 170)
+    ctx.closePath()
+
+    ctx.fillStyle = 'gold'
+    ctx.fill()
+
+    console.log(ctx)
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arcs & Circles</title>
+
+  <style>
+    #canvas {
+      border: 1px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="300">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.beginPath()
+    ctx.arc(150, 150, 80, 0, 1*Math.PI, true)
+    ctx.fill()
+
+    ctx.fillStyle = 'tomato'
+
+    ctx.beginPath()
+    ctx.arc(150, 150, 80, 0, 1*Math.PI, false)
+    ctx.fill()
+
+    ctx.beginPath()
+    ctx.moveTo(0, 150)
+    ctx.arcTo(150, 250, 300, 150, 80)
+    ctx.lineTo(300, 150)
+    ctx.stroke()
+
+    console.log(ctx)
+  </script>
+
+</body>
+
+</html>

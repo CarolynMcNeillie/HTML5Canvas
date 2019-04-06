@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drawing Rectangles</title>
+
+  <style>
+    #canvas {
+      border: 1px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="300">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.fillStyle = 'rebeccapurple'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    ctx.globalAlpha = '0.85'
+    ctx.fillStyle = 'ivory'
+    ctx.fillRect(0, 0, (canvas.width / 2), (canvas.height / 2))
+    ctx.fillStyle = 'gold'
+    ctx.fillRect((canvas.width / 2), (canvas.height / 2), (canvas.width / 2), (canvas.height / 2))
+    ctx.strokeStyle = 'coral'
+    ctx.lineWidth = '50'
+    ctx.globalAlpha = '0.5'
+    ctx.strokeRect(50, 50, 200, 200)
+
+    console.log(ctx)
+  </script>
+
+</body>
+
+</html>
