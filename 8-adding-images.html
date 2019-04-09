@@ -17,13 +17,16 @@
   <canvas id="canvas" height="300" width="600">
     Your browser does not support HTML5 Canvas.
   </canvas>
-  
+
   <script>
-    const canvas = document.getElementById('canvas')
-    const ctx = canvas.getContext('2d')
-    const image = new Image()
-    image.src = image.jpg
-    
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext('2d')
+    var image = new Image();
+    image.src = 'image.jpg'
+
+    image.onload = function () {
+      ctx.drawImage(image, 0, 0)
+    }
 
     console.log(ctx)
   </script>
