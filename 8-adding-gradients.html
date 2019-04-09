@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gradients</title>
+
+  <style>
+    #canvas {
+      border: 1px solid #201000;
+      background: tomato;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="600">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    //linear gradient
+
+    const linear = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
+    linear.addColorStop(0, 'tomato')
+    linear.addColorStop(0.65, 'lightblue')
+    linear.addColorStop(1, 'gold')
+    ctx.fillStyle = linear
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    const radial = ctx.createRadialGradient(canvas.width/4, canvas.height/2, 10, canvas.width/1.5, canvas.height/2, 300)
+    radial.addColorStop(0, 'lightblue')
+    radial.addColorStop(0.3, 'white')
+    radial.addColorStop(1, 'black')
+    ctx.fillStyle = radial
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    console.log(ctx)
+  </script>
+
+</body>
+
+</html>

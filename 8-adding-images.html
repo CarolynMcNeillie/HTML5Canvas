@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adding Images to the canvas</title>
+
+  <style>
+    #canvas {
+      border: 3px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="600">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+    const image = new Image()
+    image.src = image.jpg
+    
+
+    console.log(ctx)
+  </script>
+
+</body>
+
+</html>
