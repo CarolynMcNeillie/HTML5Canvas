@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Save and Restore</title>
+
+  <style>
+    #canvas {
+      border: 3px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="600" width="600">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.beginPath()
+    ctx.fillStyle = 'green'
+    ctx.arc(150, 150, 80, 0, 2*Math.PI)
+    ctx.fill()
+    ctx.save() //save the fill
+
+    ctx.beginPath()
+    ctx.fillStyle = 'red'
+    ctx.arc(400, 150, 80, 0, 2*Math.PI)
+    ctx.fill()
+    ctx.save() //save the fill
+
+    ctx.restore() // most recent save on stack
+    ctx.beginPath()
+    ctx.arc(150, 400, 80, 0, 2*Math.PI)
+    ctx.fill()
+
+    ctx.restore() //second most recent save on stack
+    ctx.beginPath()
+    ctx.arc(400, 400, 80, 0, 2*Math.PI)
+    ctx.fill()
+
+    console.log(ctx)
+  </script>
+
+</body>
+</html>

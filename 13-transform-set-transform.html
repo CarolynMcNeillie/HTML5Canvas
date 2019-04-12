@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transform and Set Transform</title>
+
+  <style>
+    #canvas {
+      border: 3px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="600" width="600">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.translate(100, 100)
+    // ctx.rotate(45*Math.PI/180)
+
+    //PARAMS
+    //horizontal scale
+    //horizontal skew
+    //vertical skew
+    //vertical scale
+    //translateX
+    //translateY
+
+    ctx.setTransform(1.5, 0, 0, 1.5, 50, 50)
+    ctx.fillStyle = 'purple'
+    ctx.fillRect(0, 0, 300, 200)
+
+    // transform = add to the translation matrix
+    // setTransform = set transfrom ignoring any previous transofrmations
+
+    console.log(ctx)
+  </script>
+
+</body>
+</html>

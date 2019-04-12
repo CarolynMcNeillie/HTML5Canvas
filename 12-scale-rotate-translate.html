@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scale, Rotate and Translate</title>
+
+  <style>
+    #canvas {
+      border: 3px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="600" width="600">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    ctx.translate(100, 100)
+    // ctx.rotate(45*Math.PI/180)
+    ctx.fillStyle = 'purple'
+    ctx.fillRect(0, 0, 300, 200)
+
+    ctx.translate(100, 300)
+    ctx.scale(0.5, 0.5)
+    ctx.fillStyle = 'orange'
+    ctx.fillRect(0, 0, 300, 200)
+
+    console.log(ctx)
+  </script>
+
+</body>
+</html>
