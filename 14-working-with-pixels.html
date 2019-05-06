@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Working with Pixels</title>
+
+  <style>
+    #canvas {
+      border: 3px solid #201000;
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="300" width="600">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+    let imageData = ctx.createImageData(400, 200)
+
+    for(let i = 0; i < imageData.data.length; i+=4) {
+      imageData.data[i + 0] = 150 // red 0 - 255
+      imageData.data[i + 1] = 200 // green 0 - 255
+      imageData.data[i + 2] = 0 // blue 0 - 255
+      imageData.data[i + 3] = 255 // alpha 0 - 255
+    }
+
+    ctx.putImageData(imageData, 0, 0)
+
+    console.log(ctx.getImageData(0, 0, 10, 10))
+
+    // var image = new Image();
+    // image.src = 'image.jpg'
+
+    // image.onload = function () {
+    //   ctx.drawImage(image, 0, 0)
+    // }
+
+    console.log(ctx)
+  </script>
+
+</body>
+</html>
