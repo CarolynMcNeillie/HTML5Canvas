@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Working with Pixels</title>
+  <title>Looping</title>
 
   <style>
     #canvas {
@@ -25,30 +26,34 @@
 
     var image = new Image();
     image.src = 'image.jpg'
-    
+
     // Note: for Chrome, run this through MAMP
 
     image.onload = function () {
-    ctx.drawImage(image, 0, 0)
+      ctx.drawImage(image, 0, 0)
 
-    imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
-
-    for(let i = 0; i < imageData.data.length; i+=4) { 
-      let red = imageData.data[i + 0]
-      let green = imageData.data[i + 1]
-      let blue = imageData.data[i + 2]
-
-      //greyscale - set rgb to average of all three
-      const average = (red + green + blue) / 3
-
-      imageData.data[i + 0] = average
-      imageData.data[i + 1] = average
-      imageData.data[i + 2] = average
+      imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+      makeGreyscale(imageData)
     }
 
-    ctx.putImageData(imageData, 0, 0)
+    function makeGreyscale(imageData) {
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        let red = imageData.data[i + 0]
+        let green = imageData.data[i + 1]
+        let blue = imageData.data[i + 2]
+
+        //greyscale - set rgb to average of all three
+        const average = (red + green + blue) / 3
+
+        imageData.data[i + 0] = average
+        imageData.data[i + 1] = average
+        imageData.data[i + 2] = average
+      }
+
+      ctx.putImageData(imageData, 0, 0)
     }
   </script>
 
 </body>
+
 </html>
