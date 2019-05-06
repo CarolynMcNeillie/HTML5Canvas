@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Looping</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh; 
+      position: relative;
+    }
+
+    #canvas {
+      border: 3px solid #201000;
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  </style>
+
+</head>
+
+<body>
+  <canvas id="canvas" height="600" width="600">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+    const guide = 'lightblue'
+    const slate = 'rgb(20, 5, 0)'
+    const slateFill = 'rgba(20, 5, 0, 0.85)'
+
+    //guides
+    ctx.strokeStyle = guide
+    ctx.fillStyle = 'white'
+    ctx.lineWidth = 1
+    ctx.beginPath()
+    ctx.moveTo(canvas.width/2, 0)
+    ctx.lineTo(canvas.width/2, canvas.height)
+    ctx.closePath()
+
+    ctx.stroke()
+
+    ctx.beginPath()
+    ctx.moveTo(0, canvas.height/2)
+    ctx.lineTo(canvas.width, canvas.height/2)
+    ctx.closePath()
+
+    ctx.stroke()
+
+    //set up drawing context
+    ctx.lineWidth = 4
+    ctx.strokeStyle = slate
+    ctx.lineCap = 'round'
+
+
+     //head
+     ctx.beginPath()
+     ctx.fillStyle = slateFill
+     ctx.arc(canvas.width/2, canvas.height/2, 150, 0.9*Math.PI, 0.1*Math.PI)
+     ctx.fill()
+     ctx.stroke()
+
+     //ears
+     ctx.beginPath()
+     ctx.arc(canvas.width/2 - 130, canvas.height/2 - 180, 70, 0, 2*Math.PI, true)
+     ctx.fill()
+     ctx.stroke()
+
+     ctx.beginPath()
+     ctx.arc(canvas.width - 170, canvas.height/2 - 180, 70, 0, 2*Math.PI, true)
+     ctx.fill()
+     ctx.stroke()
+
+     // face
+     ctx.fillStyle = 'white'
+     ctx.beginPath()
+     ctx.moveTo(205,310)
+     ctx.bezierCurveTo(160, 140, 290, 140, 300, 170)
+    //  ctx.fill()
+    //  ctx.stroke()
+
+    //  ctx.beginPath()
+     ctx.moveTo(395,310)
+     ctx.bezierCurveTo(440, 140, 290, 140, 300, 170)
+     ctx.fill()
+     ctx.stroke()
+
+    //  //eyes
+    //  ctx.beginPath()
+    //  ctx.arc(canvas.width/2 - 30, canvas.height/2 - 30, 80, 0, 2*Math.PI, true)
+    //  ctx.stroke()
+
+    //set up text context
+    ctx.font = '70px Times'
+    ctx.fillStyle = 'tomato'
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'hanging'
+    ctx.fillText('Mickey Mouse!', canvas.width/2, canvas.height - 100)
+
+  </script>
+
+</body>
+</html>
